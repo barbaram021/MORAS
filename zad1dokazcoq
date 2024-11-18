@@ -1,0 +1,43 @@
+Set Implicit Arguments.
+Require Import Setoid.
+Require Import Lia.
+Require Import List.
+Import ListNotations.
+Require Import Arith.
+Require Import Bool.
+Import Coq.Bool.Bool.
+
+
+ 
+(* Zadatak 1 *)
+Goal forall x y : bool, (x && negb y) || (negb x && negb y) || (negb x && y) = (negb x || negb y).
+Proof.
+destruct x, y.
+- simpl. reflexivity.
+- simpl. reflexivity.
+- simpl. reflexivity.
+- simpl. reflexivity.
+Qed.
+
+Goal forall X Y Z : Prop, ~(~X /\ Y /\ Z) /\ ~(X /\ Y /\ ~Z) /\ (X /\ ~Y /\ Z)
+<-> (~Y /\ X /\ Z).
+Proof.
+intros X Y Z. split.
+- intros H. destruct H. destruct H0. destruct H1.
+split. destruct H2.
+-- exact H2.
+-- split.
+--- exact H1.
+--- destruct H2. exact H3.
+- intros G. split. 
+-- intros H. apply G. destruct H. destruct H0.
+exact H0.
+-- split.
++ intros K. apply G. destruct K. destruct H0.
+exact H0.
++ split.
+++ destruct G. destruct H0. exact H0.
+++ destruct G. destruct H0. split.
++++ exact H.
++++ exact H1.
+Qed.

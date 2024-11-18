@@ -1,0 +1,42 @@
+CHIP Diff {
+    IN a[16], b[16];  
+    OUT out[16];     
+
+    PARTS:
+    
+    Xor(a = a[0], b = b[0], out = diff0);
+    Xor(a = a[1], b = b[1], out = diff1);
+    Xor(a = a[2], b = b[2], out = diff2);
+    Xor(a = a[3], b = b[3], out = diff3);
+    Xor(a = a[4], b = b[4], out = diff4);
+    Xor(a = a[5], b = b[5], out = diff5);
+    Xor(a = a[6], b = b[6], out = diff6);
+    Xor(a = a[7], b = b[7], out = diff7);
+    Xor(a = a[8], b = b[8], out = diff8);
+    Xor(a = a[9], b = b[9], out = diff9);
+    Xor(a = a[10], b = b[10], out = diff10);
+    Xor(a = a[11], b = b[11], out = diff11);
+    Xor(a = a[12], b = b[12], out = diff12);
+    Xor(a = a[13], b = b[13], out = diff13);
+    Xor(a = a[14], b = b[14], out = diff14);
+    Xor(a = a[15], b = b[15], out = diff15);
+
+   
+    Add16(a[0] = diff0, b[0] = false, out = out0);
+	Add16(a[0] = diff1, b = out0, out = out1);
+	Add16(a[0] = diff2, b = out1, out = out2);
+	Add16(a[0] = diff3, b = out2, out = out3);
+	Add16(a[0] = diff4, b = out3, out = out4);
+	Add16(a[0] = diff5, b = out4, out = out5);
+	Add16(a[0] = diff6, b = out5, out = out6);
+	Add16(a[0] = diff7, b = out6, out = out7);
+	Add16(a[0] = diff8, b = out7, out = out8);
+	Add16(a[0] = diff9, b = out8, out = out9);
+	Add16(a[0] = diff10, b = out9, out = out10);
+	Add16(a[0] = diff11, b = out10, out = out11);
+	Add16(a[0] = diff12, b = out11, out = out12);
+	Add16(a[0] = diff13, b = out12, out = out13);
+	Add16(a[0] = diff14, b = out13, out = out14);
+	Add16(a[0] = diff15, b = out14, out = out);
+}
+
