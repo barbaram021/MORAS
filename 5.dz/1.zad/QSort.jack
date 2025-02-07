@@ -1,0 +1,34 @@
+class QSort {
+    function Array qshelp(Array A, int l, int r) {
+        var int pivot, pivotIndex, i, temp;
+        
+        if (~(l < r)) {
+            return A;
+        }
+
+        let pivot = A[l];
+        let pivotIndex = l;
+        let i = l + 1;
+        while (~(i > r)) {
+            if (pivot > A[i]) {
+                let pivotIndex = pivotIndex + 1;
+                let temp = A[pivotIndex];
+                let A[pivotIndex] = A[i];
+                let A[i] = temp;
+            }
+            let i = i + 1;
+        }
+        let temp = A[pivotIndex];
+        let A[pivotIndex] = pivot;
+        let A[l] = temp;
+
+        let A = QSort.qshelp(A, l, pivotIndex - 1);
+        let A = QSort.qshelp(A, pivotIndex + 1, r);
+
+        return A;
+    }
+
+    function Array qsort(Array A, int n) {
+        return QSort.qshelp(A, 0, n-1);
+    }
+}

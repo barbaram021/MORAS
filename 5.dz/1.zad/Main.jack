@@ -1,0 +1,40 @@
+class Main {
+    function void main() {
+        var Array A;
+        var int n, i, input;
+        var vint V1, V2;
+        
+        // 1. Zadatak
+        // Upis arraya
+        let n = Keyboard.readInt("Unesite duljnu polja: ");
+        let A = Array.new(n);
+        
+        let i = 0;
+        while (i < n) {
+            do Output.printString("Unesite broj ");
+            do Output.printInt(i);
+            do Output.printString(":");
+            let A[i] = Keyboard.readInt("");
+            let i = i + 1;
+        }
+    
+        // Ispis sortiranog arraya
+        let A = QSort.qsort(A, n);
+        
+        do Output.printString("Sortirano polje: [");
+        let i = 0;
+        let n = n - 1;
+        while (i < n) {
+            do Output.printInt(A[i]);
+            do Output.printString(", ");
+            let i = i + 1;
+        }
+        do Output.printInt(A[n]);
+        do Output.printString("]");
+        do Output.println();
+
+        do A.dispose();
+
+        return;
+    }
+}
